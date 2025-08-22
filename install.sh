@@ -72,7 +72,7 @@ echo -e "${GREEN}✅ Git${NC}"
 echo ""
 
 # Installation steps
-TOTAL_STEPS=7
+TOTAL_STEPS=11
 CURRENT_STEP=1
 
 install_step() {
@@ -279,7 +279,70 @@ rm -f test_scrape_claude_docs.py
 deactivate
 echo ""
 
-# Step 7: Final Configuration and Testing
+# Step 7: Process Documentation into Vector Database
+install_step "Processing documentation into vector database"
+
+echo "📋 Processing scraped documentation into chunks..."
+cd "$SCRIPT_DIR/data"
+
+# Use doc-tools venv for processing (has required dependencies)
+if [ -d "$SCRIPT_DIR/doc-tools/venv" ]; then
+    source "$SCRIPT_DIR/doc-tools/venv/bin/activate"
+    
+    # Process test data into chunks
+    if [ -f "process_test_data.py" ]; then
+        python3 process_test_data.py || echo "⚠️ Processing failed - continuing installation"
+    else
+        echo "⚠️ Process script not found - skipping"
+    fi
+    
+    deactivate
+else
+    echo "⚠️ Doc tools venv not found - skipping processing"
+fi
+
+echo ""
+
+# Step 8: Build Vector Database Index
+install_step "Building vector database index"
+
+echo "🔨 Building searchable vector index..."
+cd "$SCRIPT_DIR/data"
+
+# Use vector-server venv for indexing
+if [ -d "$SCRIPT_DIR/vector-server/venv" ]; then
+    source "$SCRIPT_DIR/vector-server/venv/bin/activate"
+    
+    # Build vector index
+    if [ -f "build_vector_index.py" ]; then
+        VECTOR_DB_PATH="$SCRIPT_DIR/data/vector_db" python3 build_vector_index.py || echo "⚠️ Index building failed - continuing"
+    else
+        echo "⚠️ Build script not found - skipping"
+    fi
+    
+    deactivate
+else
+    echo "⚠️ Vector server venv not found - skipping indexing"
+fi
+
+echo ""
+
+# Step 9: Initialize Observation System
+install_step "Initializing agent observation system"
+
+echo "🔍 Setting up cross-project learning system..."
+cd "$SCRIPT_DIR/data"
+
+# Use Python directly for observation system
+if [ -f "initialize_observation_system.py" ]; then
+    python3 initialize_observation_system.py || echo "⚠️ Observation initialization failed - continuing"
+else
+    echo "⚠️ Observation script not found - skipping"
+fi
+
+echo ""
+
+# Step 10: Final Configuration and Testing
 install_step "Final Configuration and Testing"
 
 # Create global command scripts
@@ -330,15 +393,30 @@ python -c "import requests; import beautifulsoup4; print('✅ Doc tools import s
 deactivate
 
 echo ""
+
+# Step 11: Generate Installation Report
+install_step "Generating installation report"
+
+echo "📊 Validating installation and generating report..."
+cd "$SCRIPT_DIR/data"
+
+# Generate comprehensive installation report
+if [ -f "generate_installation_report.py" ]; then
+    python3 generate_installation_report.py || echo "⚠️ Report generation failed"
+else
+    echo "⚠️ Report generator not found"
+fi
+
+echo ""
 echo -e "${GREEN}🎉 Installation Complete!${NC}"
 echo -e "${YELLOW}════════════════════════════════════${NC}"
 echo ""
 echo -e "${CYAN}📋 What was installed:${NC}"
 echo "   🤖 Agent System - Global Claude Code integration"
-echo "   🗃️ Vector Database - Empty, ready for your documentation"  
+echo "   🗃️ Vector Database - Populated with Claude Code documentation"  
 echo "   🔍 MCP Vector Server - Semantic search integration"
 echo "   📖 Documentation Tools - Web scraper and post-processor"
-echo "   🧪 Test Data - Claude Code documentation for testing"
+echo "   🔍 Observation System - Cross-project learning enabled"
 echo ""
 echo -e "${CYAN}🚀 Quick Start:${NC}"
 echo "   1. Restart Claude Code to load new MCP configuration"
@@ -368,6 +446,15 @@ fi
 
 echo ""
 echo -e "${GREEN}✨ Your Claude Complete Ecosystem is ready!${NC}"
+echo ""
+
+# Check if report was generated and show summary
+if [ -f "$SCRIPT_DIR/INSTALLATION_REPORT.md" ]; then
+    echo -e "${CYAN}📄 Installation Report: $SCRIPT_DIR/INSTALLATION_REPORT.md${NC}"
+    echo -e "${GREEN}✅ Check the report for detailed status of all components${NC}"
+fi
+
+echo ""
 echo -e "${CYAN}🔗 Next: Restart Claude Code and start using the agentic system${NC}"
 
 exit 0

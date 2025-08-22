@@ -174,7 +174,7 @@ run_test "Vector DB metadata directory" "[ -d '$SCRIPT_DIR/data/vector_db/metada
 run_test "Vector DB indices directory" "[ -d '$SCRIPT_DIR/data/vector_db/indices' ]"
 
 echo ""
-echo -e "${PURPLE}[6/6]${NC} Test Data and Auto-Scraping Tests"
+echo -e "${PURPLE}[6/8]${NC} Test Data and Auto-Scraping Tests"
 echo "─────────────────────────────────────"
 
 # Test for test data
@@ -209,6 +209,69 @@ else
 fi
 
 echo ""
+echo -e "${PURPLE}[7/8]${NC} Vector Database Content Tests"
+echo "────────────────────────────────────"
+
+# Test vector database has content
+if [ -f "$SCRIPT_DIR/data/vector_db/vector_db_index.json" ]; then
+    CHUNK_COUNT=$(python3 -c "import json; data=json.load(open('$SCRIPT_DIR/data/vector_db/vector_db_index.json')); print(len(data))" 2>/dev/null || echo "0")
+    if [ "$CHUNK_COUNT" -gt 0 ]; then
+        echo -e "${GREEN}✅ PASS${NC}: Vector database populated ($CHUNK_COUNT chunks)"
+        PASSED_TESTS=$((PASSED_TESTS + 1))
+    else
+        echo -e "${RED}❌ FAIL${NC}: Vector database empty"
+        FAILED_TESTS=$((FAILED_TESTS + 1))
+    fi
+else
+    echo -e "${RED}❌ FAIL${NC}: Vector database index not found"
+    FAILED_TESTS=$((FAILED_TESTS + 1))
+fi
+
+# Test observation system
+run_test "Observation system initialized" "[ -f '$SCRIPT_DIR/data/vector_db/indices/agent_observations.json' ]"
+
+echo ""
+echo -e "${PURPLE}[8/8]${NC} Functional Tests"
+echo "───────────────────"
+
+# Test vector search functionality
+if [ -d "$SCRIPT_DIR/vector-server/venv" ] && [ -f "$SCRIPT_DIR/data/vector_db/vector_db_index.json" ]; then
+    cd "$SCRIPT_DIR/vector-server"
+    source venv/bin/activate
+    
+    # Test search returns results
+    SEARCH_TEST=$(VECTOR_DB_PATH="../data/vector_db" python3 -c "
+import sys
+sys.path.insert(0, 'src')
+try:
+    from mcp_vector_server.simple_server import load_vector_database
+    db = load_vector_database()
+    if len(db) > 0:
+        print('PASS')
+    else:
+        print('FAIL')
+except:
+    print('ERROR')
+" 2>/dev/null || echo "ERROR")
+    
+    if [ "$SEARCH_TEST" = "PASS" ]; then
+        echo -e "${GREEN}✅ PASS${NC}: Vector search functional"
+        PASSED_TESTS=$((PASSED_TESTS + 1))
+    else
+        echo -e "${RED}❌ FAIL${NC}: Vector search not functional"
+        FAILED_TESTS=$((FAILED_TESTS + 1))
+    fi
+    
+    deactivate
+    cd "$SCRIPT_DIR"
+else
+    echo -e "${YELLOW}⚠️ SKIP${NC}: Vector search test (dependencies missing)"
+fi
+
+# Test installation report exists
+run_test "Installation report generated" "[ -f '$SCRIPT_DIR/INSTALLATION_REPORT.md' ]"
+
+echo ""
 echo -e "${CYAN}📊 Test Results${NC}"
 echo "═══════════════"
 echo -e "${GREEN}✅ Passed: $PASSED_TESTS${NC}"
@@ -227,14 +290,16 @@ if [ $FAILED_TESTS -eq 0 ]; then
     echo ""
     echo -e "${CYAN}🚀 Ready to use:${NC}"
     echo "   • Agent system is configured globally"
-    echo "   • MCP Vector Server is ready"
+    echo "   • MCP Vector Server is ready with indexed documentation"
     echo "   • Documentation tools are available"
-    echo "   • Vector database is initialized"
+    echo "   • Vector database is populated and searchable"
+    echo "   • Observation system is tracking improvements"
     echo ""
     echo -e "${CYAN}💡 Next steps:${NC}"
-    echo "   1. Restart Claude Code to load MCP configuration"
-    echo "   2. Test scraping: claude-doc-scraper https://docs.example.com"
-    echo "   3. The agent system will work automatically in Claude Code"
+    echo "   1. Check INSTALLATION_REPORT.md for detailed status"
+    echo "   2. Restart Claude Code to load MCP configuration"
+    echo "   3. Test vector search in Claude Code"
+    echo "   4. The agent system will work automatically"
     exit 0
 else
     echo -e "${RED}❌ Some tests failed. Please check the installation.${NC}"

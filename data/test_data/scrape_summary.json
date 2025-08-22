@@ -1,0 +1,12 @@
+{
+  "scraped_urls": 5,
+  "total_attempted": 5,
+  "files": [
+    "../data/test_data/claude_docs_0.md",
+    "../data/test_data/claude_docs_1.md",
+    "../data/test_data/claude_docs_2.md",
+    "../data/test_data/claude_docs_3.md",
+    "../data/test_data/claude_docs_4.md"
+  ],
+  "status": "completed"
+}

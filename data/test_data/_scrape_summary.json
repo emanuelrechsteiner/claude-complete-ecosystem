@@ -1,0 +1,14 @@
+{
+  "start_url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+  "domain": "docs.anthropic.com",
+  "total_pages_scraped": 5,
+  "failed_urls": [],
+  "visited_urls": [
+    "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+    "https://docs.anthropic.com/en/docs/claude-code/interactive-mode",
+    "https://docs.anthropic.com/_next/static/css/8c76fb7d3768dfe7.css",
+    "https://docs.anthropic.com/en/docs/claude-code/cli-reference",
+    "https://docs.anthropic.com/en/docs/claude-code/costs"
+  ],
+  "scrape_completed_at": "2025-08-22T07:44:31.567177"
+}
