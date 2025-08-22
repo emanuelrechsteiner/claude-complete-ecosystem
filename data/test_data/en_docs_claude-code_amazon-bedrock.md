@@ -1,6 +1,6 @@
 ---
 url: https://docs.anthropic.com/en/docs/claude-code/amazon-bedrock
-scraped_at: 2025-08-22T07:43:29.600009
+scraped_at: 2025-08-22T08:58:38.083459
 title: Claude Code on Amazon Bedrock - Anthropic
 ---
 

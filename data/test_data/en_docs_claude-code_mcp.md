@@ -1,6 +1,6 @@
 ---
 url: https://docs.anthropic.com/en/docs/claude-code/mcp
-scraped_at: 2025-08-22T07:44:05.266324
+scraped_at: 2025-08-22T08:59:32.394654
 title: Connect Claude Code to tools via MCP - Anthropic
 ---
 

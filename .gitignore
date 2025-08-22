@@ -1,0 +1,25 @@
+# Generated artifacts from installation process
+data/processed_test_data/
+data/vector_db/vector_db_index.json
+data/vector_db/chunks/chunks.json
+data/vector_db/metadata/metadata.json
+data/vector_db/status.json
+data/vector_db/indices/agent_observations.json
+data/vector_db/indices/observation_metadata.json
+data/vector_db/indices/semantic_index.json
+data/vector_db/config/observation_config.json
+
+# Python cache files
+**/__pycache__/
+*.pyc
+*.pyo
+
+# macOS files
+.DS_Store
+
+# Temporary files from testing
+installation_status.md
+testing_progress.md
+
+# Local environment files
+.env
