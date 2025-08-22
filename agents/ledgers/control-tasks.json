@@ -1,0 +1,29 @@
+{
+  "agentId": "control-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "Plan approval and validation",
+    "Quality gate enforcement",
+    "Architecture compliance",
+    "Risk assessment",
+    "Agent coordination",
+    "Emergency protocols"
+  ],
+  "qualityGates": {
+    "minimumConfidenceLevel": 99,
+    "requiredApprovals": ["architecture", "security", "testing"],
+    "escalationTriggers": ["confidence_drop", "timeline_risk", "resource_conflict"]
+  },
+  "currentProjects": [],
+  "statistics": {
+    "plansReviewed": 0,
+    "plansApproved": 0,
+    "plansDenied": 0,
+    "averageReviewTime": 0
+  }
+}

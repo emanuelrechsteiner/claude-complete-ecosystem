@@ -1,0 +1,85 @@
+{
+  "agentId": "testing-agent",
+  "description": "Quality assurance task ledger for test implementation, coverage validation, and error reporting coordination",
+  "lastUpdated": "2025-08-12T00:00:00Z",
+  "version": "1.0.0",
+  "tasks": [],
+  "template": {
+    "taskId": "string",
+    "title": "string", 
+    "description": "string",
+    "type": "unit-test|integration-test|e2e-test|visual-test|performance-test|coverage-validation|error-reporting",
+    "status": "pending|in-progress|completed|blocked|failed",
+    "priority": "low|medium|high|critical",
+    "assignedAgent": "testing-agent",
+    "reportingTo": "control-agent",
+    "dependencies": ["string"],
+    "createdAt": "ISO-8601",
+    "updatedAt": "ISO-8601",
+    "completedAt": "ISO-8601|null",
+    "metadata": {
+      "targetCoverage": "number",
+      "currentCoverage": "number", 
+      "testFramework": "vitest|playwright|storybook",
+      "testFiles": ["string"],
+      "failingTests": ["string"],
+      "blockedBy": "string",
+      "errorReports": ["string"],
+      "coordinationNotes": "string"
+    },
+    "qualityGates": {
+      "coverageThreshold": 90,
+      "maxExecutionTime": "60s",
+      "accessibilityCompliant": true,
+      "performanceBenchmark": true,
+      "securityValidated": true
+    }
+  },
+  "coordination": {
+    "controlAgent": {
+      "reportingRequired": true,
+      "approvalNeeded": true,
+      "coordinationProtocol": "before-during-after"
+    },
+    "relatedAgents": {
+      "ui-agent": {
+        "errorReporting": true,
+        "testValidation": true,
+        "coordinationTrigger": "component-testing"
+      },
+      "backend-agent": {
+        "errorReporting": true, 
+        "testValidation": true,
+        "coordinationTrigger": "api-testing"
+      },
+      "version-control-agent": {
+        "blockingCommits": true,
+        "testValidation": true,
+        "coordinationTrigger": "pre-commit"
+      },
+      "documentation-agent": {
+        "coverageReporting": true,
+        "testDocumentation": true,
+        "coordinationTrigger": "documentation-update"
+      }
+    }
+  },
+  "metrics": {
+    "totalTasks": 0,
+    "completedTasks": 0,
+    "failedTasks": 0,
+    "averageCoverage": 0,
+    "averageExecutionTime": "0s",
+    "testSuiteHealth": "unknown"
+  },
+  "configuration": {
+    "maxConcurrentTasks": 3,
+    "reportingInterval": "30-minutes", 
+    "commitFrequency": "60-minutes",
+    "qualityThresholds": {
+      "minCoverage": 90,
+      "maxFlakiness": 5,
+      "maxExecutionTime": "300s"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "agentId": "ui-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "React component development",
+    "TypeScript implementation",
+    "Tailwind CSS styling",
+    "Zustand store integration",
+    "Unit testing (90%+ coverage)",
+    "Storybook documentation",
+    "Accessibility implementation"
+  ],
+  "deliverableTypes": [
+    "React components (.tsx)",
+    "Unit tests (.test.tsx)",
+    "Storybook stories (.stories.tsx)",
+    "Type definitions",
+    "Component documentation"
+  ],
+  "codeStandards": {
+    "typescript": "strict mode",
+    "testCoverage": ">90%",
+    "accessibility": "WCAG 2.1 AA",
+    "styling": "Tailwind CSS utility classes"
+  },
+  "currentProjects": [],
+  "statistics": {
+    "componentsCreated": 0,
+    "testsWritten": 0,
+    "storiesCreated": 0,
+    "averageTestCoverage": 0
+  }
+}

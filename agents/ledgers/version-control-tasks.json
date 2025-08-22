@@ -1,0 +1,39 @@
+{
+  "agentId": "version-control-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "Git branch management",
+    "Conventional commits",
+    "Pull request management",
+    "Release coordination",
+    "Merge conflict resolution",
+    "Branch protection rules",
+    "Deployment coordination"
+  ],
+  "deliverableTypes": [
+    "Feature branches",
+    "Commit messages",
+    "Pull requests",
+    "Release tags",
+    "Merge strategies",
+    "Branch policies"
+  ],
+  "gitStandards": {
+    "commitFormat": "Conventional Commits",
+    "branchNaming": "feature/*, bugfix/*, hotfix/*",
+    "mergeStrategy": "squash and merge",
+    "protectionRules": "required reviews + CI"
+  },
+  "currentProjects": [],
+  "statistics": {
+    "branchesCreated": 0,
+    "commitsManaged": 0,
+    "pullRequestsCreated": 0,
+    "releasesCoordinated": 0
+  }
+}

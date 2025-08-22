@@ -1,0 +1,31 @@
+{
+  "agentId": "ux-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "User experience design",
+    "Workflow optimization",
+    "Information architecture",
+    "Accessibility compliance (WCAG 2.1 AA)",
+    "Responsive design planning",
+    "User journey mapping"
+  ],
+  "deliverableTypes": [
+    "User flow diagrams",
+    "Wireframes",
+    "Interaction specifications",
+    "Accessibility audits",
+    "Usability testing plans"
+  ],
+  "currentProjects": [],
+  "statistics": {
+    "wireframesCreated": 0,
+    "userFlowsDesigned": 0,
+    "accessibilityAudits": 0,
+    "averageDeliveryTime": 0
+  }
+}

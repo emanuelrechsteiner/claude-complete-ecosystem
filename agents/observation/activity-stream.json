@@ -1,0 +1,66 @@
+{
+  "streamConfiguration": {
+    "version": "1.0.0",
+    "captureMode": "comprehensive",
+    "accuracy_target": 99.5,
+    "initialized": "2025-08-05T10:00:00Z"
+  },
+  "eventTypes": {
+    "agent_activation": {
+      "description": "Agent begins work on a task",
+      "requiredFields": ["agentId", "taskId", "timestamp", "context"]
+    },
+    "tool_invocation": {
+      "description": "Agent uses a tool",
+      "requiredFields": ["agentId", "tool", "parameters", "timestamp", "purpose"]
+    },
+    "decision_point": {
+      "description": "Agent makes a significant decision",
+      "requiredFields": ["agentId", "decision", "alternatives", "reasoning", "confidence"]
+    },
+    "communication": {
+      "description": "Inter-agent communication",
+      "requiredFields": ["fromAgent", "toAgent", "messageType", "content", "timestamp"]
+    },
+    "error_occurrence": {
+      "description": "Error or failure event",
+      "requiredFields": ["agentId", "errorType", "details", "recovery", "impact"]
+    },
+    "task_completion": {
+      "description": "Task finished",
+      "requiredFields": ["agentId", "taskId", "result", "metrics", "duration"]
+    },
+    "quality_gate": {
+      "description": "Quality review checkpoint",
+      "requiredFields": ["reviewerAgent", "targetAgent", "result", "feedback", "confidence"]
+    }
+  },
+  "capturePoints": [
+    "ledger_updates",
+    "tool_invocations", 
+    "agent_communications",
+    "error_logs",
+    "decision_logs",
+    "performance_metrics"
+  ],
+  "storageStrategy": {
+    "format": "structured_json",
+    "compression": "gzip",
+    "retention": {
+      "hot": "7_days",
+      "warm": "30_days",
+      "cold": "indefinite"
+    },
+    "indexing": {
+      "primary": "timestamp",
+      "secondary": ["agentId", "taskId", "eventType"],
+      "search": "full_text"
+    }
+  },
+  "integrityChecks": {
+    "sequenceValidation": true,
+    "checksumVerification": true,
+    "gapDetection": true,
+    "redundancyLevel": 3
+  }
+}

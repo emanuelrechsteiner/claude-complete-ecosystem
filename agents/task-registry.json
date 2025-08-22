@@ -1,0 +1,33 @@
+{
+  "projectId": "VVK_Zahlen_Analyzer",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeFeatures": [],
+  "completedFeatures": [],
+  "agentLedgers": {
+    "planning-agent": ".claude/ledgers/planning-tasks.json",
+    "control-agent": ".claude/ledgers/control-tasks.json", 
+    "research-agent": ".claude/ledgers/research-tasks.json",
+    "ux-agent": ".claude/ledgers/ux-tasks.json",
+    "ui-agent": ".claude/ledgers/ui-tasks.json",
+    "backend-agent": ".claude/ledgers/backend-tasks.json",
+    "documentation-agent": ".claude/ledgers/documentation-tasks.json",
+    "testing-agent": ".claude/ledgers/testing-tasks.json",
+    "version-control-agent": ".claude/ledgers/version-control-tasks.json",
+    "improvement-agent": ".claude/ledgers/improvement-tasks.json"
+  },
+  "globalSettings": {
+    "requireControlApproval": true,
+    "minimumConfidenceLevel": 99,
+    "parallelDevelopmentProtection": true,
+    "automaticConflictDetection": true,
+    "improvementAgentAutoStart": true,
+    "globalObservationLedger": "~/.claude/global-observation/observation-ledger.json"
+  },
+  "communicationProtocols": {
+    "dailyStandups": "ledger-updates",
+    "dependencyNotifications": "automated",
+    "blockerEscalation": "immediate",
+    "qualityReviews": "scheduled"
+  }
+}

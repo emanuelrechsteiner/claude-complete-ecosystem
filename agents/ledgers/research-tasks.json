@@ -1,0 +1,44 @@
+{
+  "agentId": "research-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "Documentation research using Firecrawl MCP",
+    "API documentation scraping and analysis",
+    "Technology evaluation and feasibility assessment",
+    "Best practices compilation and synthesis",
+    "Security guidelines research",
+    "Performance optimization research",
+    "Implementation pattern discovery",
+    "Troubleshooting resource compilation"
+  ],
+  "currentProjects": [],
+  "researchAreas": {
+    "backend": ["Firebase", "Cloud Functions", "Firestore", "Authentication", "Security"],
+    "frontend": ["React", "TypeScript", "Tailwind CSS", "Zustand", "Testing"],
+    "testing": ["Vitest", "React Testing Library", "Playwright", "Coverage"],
+    "general": ["Performance", "Security", "Best Practices", "Architecture"]
+  },
+  "firecrawlMcpConfig": {
+    "tools": [
+      "firecrawl_scrape",
+      "firecrawl_map", 
+      "firecrawl_search",
+      "firecrawl_extract",
+      "firecrawl_deep_research"
+    ],
+    "status": "pending_configuration"
+  },
+  "statistics": {
+    "tasksCompleted": 0,
+    "averageCompletionTime": 0,
+    "successRate": 100,
+    "documentsCreated": 0,
+    "urlsScraped": 0,
+    "researcHours": 0
+  }
+}

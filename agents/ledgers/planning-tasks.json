@@ -1,0 +1,23 @@
+{
+  "agentId": "planning-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "Strategic project analysis",
+    "Multi-agent orchestration", 
+    "Task ledger management",
+    "Risk assessment and mitigation",
+    "Dependency mapping",
+    "Quality gate coordination"
+  ],
+  "currentProjects": [],
+  "statistics": {
+    "tasksCompleted": 0,
+    "averageCompletionTime": 0,
+    "successRate": 100
+  }
+}

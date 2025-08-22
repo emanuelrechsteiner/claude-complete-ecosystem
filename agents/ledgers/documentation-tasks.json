@@ -1,0 +1,40 @@
+{
+  "agentId": "documentation-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "API documentation",
+    "Architecture documentation",
+    "Developer guides",
+    "User documentation",
+    "JSDoc comments",
+    "README maintenance",
+    "Changelog management"
+  ],
+  "deliverableTypes": [
+    "API documentation",
+    "Component documentation",
+    "Architecture diagrams",
+    "Developer guides",
+    "User manuals",
+    "README updates",
+    "Inline code documentation"
+  ],
+  "documentationStandards": {
+    "format": "Markdown",
+    "apiDocs": "OpenAPI 3.0",
+    "codeComments": "JSDoc",
+    "versioning": "Semantic versioning"
+  },
+  "currentProjects": [],
+  "statistics": {
+    "docsCreated": 0,
+    "docsUpdated": 0,
+    "apiEndpointsDocumented": 0,
+    "guidesWritten": 0
+  }
+}

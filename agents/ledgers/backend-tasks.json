@@ -1,0 +1,39 @@
+{
+  "agentId": "backend-agent",
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-05T10:00:00Z",
+  "activeTasks": [],
+  "pendingTasks": [],
+  "completedTasks": [],
+  "blockedTasks": [],
+  "capabilities": [
+    "Zustand state management",
+    "Firebase Functions development",
+    "Firestore operations",
+    "Authentication integration",
+    "Security rules management",
+    "Data validation (Zod schemas)",
+    "Optimistic updates with rollback"
+  ],
+  "deliverableTypes": [
+    "Zustand stores",
+    "Firebase Functions",
+    "Validation schemas",
+    "Security rules",
+    "Database indexes",
+    "API endpoints"
+  ],
+  "securityStandards": {
+    "dataAccess": "user-scoped only",
+    "validation": "client + server side",
+    "authentication": "Firebase Auth required",
+    "errorHandling": "comprehensive with rollback"
+  },
+  "currentProjects": [],
+  "statistics": {
+    "storesImplemented": 0,
+    "functionsDeployed": 0,
+    "schemasCreated": 0,
+    "securityRulesUpdated": 0
+  }
+}
